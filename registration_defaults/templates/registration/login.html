@@ -2,6 +2,7 @@
 {% load i18n %}
 
 {% block title %}{% trans 'Login' %}{% endblock %}
+
 {% block body %}
 
 {% if form.errors %}
@@ -22,7 +23,9 @@
 </tr>
 </table>
 <p>
-{% blocktrans %}<a href="{% url auth_password_reset %}">Forgot</a> your password?  <a href="{% url registration_register %}">Need an account</a>?
+{% url auth_password_reset as url_auth_password_reset %}
+{% url registration_register as url_registration_register %}
+{% blocktrans %}<a href="{{ url_auth_password_reset }}">Forgot</a> your password?  <a href="{{ url_registration_register }}">Need an account</a>?
 {% endblocktrans %}
 </p>
 
